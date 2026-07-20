@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercedes-AMG</title>
+    <link rel="stylesheet" href="style_mercedes.css">
+</head>
+<body>
+
+    <section class="heading">
+        <!-- <img src="Amg.jpg"> -->
+        <h1>Mercedes-AMG</h1>
+    </section>
+    <section class="about">
+        <div class="about_div">
+            <h1>The Anatomy of Performance</h1>
+            <p>The Mercedes-AMG Petronas F1 Team is one of the most successful constructors in Formula 1 history, renowned for its technical innovation and relentless pursuit of performance. While the "Silver Arrows" first dominated the sport in the mid-1950s with racing legend Juan Manuel Fangio, the modern iteration of the team was born when Mercedes returned to the grid full-time in 2010.<br><br>Led by Team Principal Toto Wolff and powered by the driving brilliance of Lewis Hamilton, the team triggered an unprecedented era of modern dominance at the start of the V6 turbo-hybrid era in 2014, capturing a historic eight consecutive Constructors' Championships from 2014 to 2021 and securing nine total Drivers' Titles.</p>
+        </div>
+    </section>
+    <section class="players">
+        <h1>The Team</h1>
+        <div class="button-controls">
+        <button id="prev-btn"><</button>
+        <button id="next-btn">></button>
+    </div>
+        
+        <div class="info-box active" id="box-1">
+            <h2>George Russell(#63)</h2>
+            <img src="george-russell-mercedes.webp">
+            <h3>Stats</h3>
+            <ul>
+                <li>Race Entries: 182 (180 starts)</li>
+                <li>World Championships: 0 (Best finish: 2nd place in 2022)</li>
+                <li>Grand Prix Wins: 9</li>
+                <li>Total Career Points: 1,780</li>
+            </ul>
+            <p>
+        </div>
+        
+        <div class="info-box" id="box-2">
+            <h2>Andrea Kimi Antonelli(#12)</h2>
+            <img src="andrea-kimi-antonelli-mercedes.jpg">
+            <h3>Stats</h3>
+            <ul>
+                <li>Grand Prix Entries: 389 (389 starts).</li>
+                <li>World Championships: 7 (2008, 2014, 2015, 2017, 2018, 2019, 2020)</li>
+                <li>*Grand Prix Wins: 106 — All-time F1 record.</li>
+                <li>*Total Career Points: 5,165.5.</li>
+            </ul>
+        </div>
+    </section>
+    <section class="trophy-gallery">
+        <h1>Championship Cupboard</h1> 
+        <div class="button-controls">
+            <button id="prev-shelf"><</button>
+            <button id="next-shelf">></button>
+        </div>
+        <div class="cupboard-container">
+            <div class="trophy-row active">
+                <div class="trophy">
+                    <img src="juan-fangio-crossing-the-finish-line-first-in-his-ferrari-news-photo-1590698126.avif" alt="Trophy">
+                    <h3>First F1 Victory</h3>
+                    <p><strong>Recipient:</strong> Froilán González</p>
+                    <p><strong>Date:</strong> 1951 British GP</p>
+                </div>
+                <div class="trophy">
+                    <img src="GettyImages-104415068.avif" alt="Trophy">
+                    <h3>1st Constructors'</h3>
+                    <p><strong>Recipient:</strong> Scuderia Ferrari</p>
+                    <p><strong>Date:</strong> 1961 Season</p>
+                </div>
+                <div class="trophy">
+                    <img src="Michael_Schumacher_-_First_podium_with_Ferrari_1996_2048x2048.webp" alt="Trophy">
+                    <h3>Historic 3rd Title</h3>
+                    <p><strong>Recipient:</strong> Michael Schumacher</p>
+                    <p><strong>Date:</strong> 2000 Season</p>
+                </div>
+            </div>
+            <div class="trophy-row">
+                <div class="trophy">
+                    <img src="pi5a9mukudwf1.png" alt="Trophy">
+                    <h3>Most Recent WDC</h3>
+                    <p><strong>Recipient:</strong> Kimi Räikkönen</p>
+                    <p><strong>Date:</strong> 2007 Season</p>
+                </div>
+                <div class="trophy">
+                    <img src="2019-F1-Italian-GP_Charles-Leclerc_3.avif" alt="Trophy">
+                    <h3>Monza Heroics</h3>
+                    <p><strong>Recipient:</strong> Charles Leclerc</p>
+                    <p><strong>Date:</strong> 2019 Italian GP</p>
+                </div>
+                <div class="trophy">
+                    <img src="monacogp.jpg" alt="Trophy">
+                    <h3>Home Glory</h3>
+                    <p><strong>Recipient:</strong> Charles Leclerc</p>
+                    <p><strong>Date:</strong> 2024 Monaco GP</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+<script>
+    const nextBtn = document.getElementById('next-btn');
+    const prevBtn = document.getElementById('prev-btn');
+    const boxes = document.querySelectorAll('.info-box'); 
+    let currentDriver = 0;
+
+    nextBtn.addEventListener('click', () => {
+        boxes[currentDriver].classList.remove('active');
+        currentDriver = (currentDriver + 1) % boxes.length;
+        boxes[currentDriver].classList.add('active');
+    });
+
+    prevBtn.addEventListener('click', () => {
+        boxes[currentDriver].classList.remove('active');
+        currentDriver = (currentDriver - 1 + boxes.length) % boxes.length;
+        boxes[currentDriver].classList.add('active');
+    });
+
+
+    // --- 2. TROPHY CUPBOARD LOGIC ---
+    const nextShelfBtn = document.getElementById('next-shelf');
+    const prevShelfBtn = document.getElementById('prev-shelf');
+    const shelves = document.querySelectorAll('.trophy-row'); 
+    let currentShelf = 0;
+
+    nextShelfBtn.addEventListener('click', () => {
+        shelves[currentShelf].classList.remove('active');
+        currentShelf = (currentShelf + 1) % shelves.length;
+        shelves[currentShelf].classList.add('active');
+    });
+
+    prevShelfBtn.addEventListener('click', () => {
+        shelves[currentShelf].classList.remove('active');
+        currentShelf = (currentShelf - 1 + shelves.length) % shelves.length;
+        shelves[currentShelf].classList.add('active');
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redbull</title>
+    <link rel="stylesheet" href="style_redbull.css">
+</head>
+<body>
+
+    <section class="heading">
+        <!-- <img src="Amg.jpg"> -->
+        <h1>Redbull</h1>
+    </section>
+    <section class="about">
+        <div class="about_div">
+            <h1>Red Bull Racing: Driven by Innovation</h1>
+        <p>Red Bull Racing is one of Formula 1’s most dominant force, famous for its aggressive culture and groundbreaking aerodynamic design. Built from Jaguar Racing in 2004, the team rapidly evolved from paddock disruptors into an F1 powerhouse.<br><br>Under Team Principal Christian Horner and legendary designer Adrian Newey, Red Bull first ruled the grid with Sebastian Vettel (2010–2013), taking four straight championship doubles. Powered by Max Verstappen, the squad reclaimed the top spot, setting new benchmarks for win streaks and engineering excellence.</p>        </div>
+    </section>
+    <section class="players">
+        <h1>The Team</h1>
+        <div class="button-controls">
+        <button id="prev-btn"><</button>
+        <button id="next-btn">></button>
+    </div>
+        
+        <div class="info-box active" id="box-1">
+            <h2>Max Verstappen (#3)</h2>
+            <img src="max.jpeg">
+            <h3>Stats</h3>
+            <ul>
+                <li>Race Entries: 182 (180 starts)</li>
+                <li>World Championships: 0 (Best finish: 2nd place in 2022)</li>
+                <li>Grand Prix Wins: 9</li>
+                <li>Total Career Points: 1,780</li>
+            </ul>
+            <p>
+        </div>
+        
+        <div class="info-box" id="box-2">
+            <h2>Isack Hadjar(#6)</h2>
+            <img src="issac.avif">
+            <h3>Stats</h3>
+            <ul>
+                <li>Grand Prix Entries: 389 (389 starts).</li>
+                <li>World Championships: 7 (2008, 2014, 2015, 2017, 2018, 2019, 2020)</li>
+                <li>*Grand Prix Wins: 106 — All-time F1 record.</li>
+                <li>*Total Career Points: 5,165.5.</li>
+            </ul>
+        </div>
+    </section>
+    <section class="trophy-gallery">
+        <h1>Championship Cupboard</h1> 
+        <div class="button-controls">
+            <button id="prev-shelf"><</button>
+            <button id="next-shelf">></button>
+        </div>
+        <div class="cupboard-container">
+            <div class="trophy-row active">
+                <div class="trophy">
+                    <img src="juan-fangio-crossing-the-finish-line-first-in-his-ferrari-news-photo-1590698126.avif" alt="Trophy">
+                    <h3>First F1 Victory</h3>
+                    <p><strong>Recipient:</strong> Froilán González</p>
+                    <p><strong>Date:</strong> 1951 British GP</p>
+                </div>
+                <div class="trophy">
+                    <img src="GettyImages-104415068.avif" alt="Trophy">
+                    <h3>1st Constructors'</h3>
+                    <p><strong>Recipient:</strong> Scuderia Ferrari</p>
+                    <p><strong>Date:</strong> 1961 Season</p>
+                </div>
+                <div class="trophy">
+                    <img src="Michael_Schumacher_-_First_podium_with_Ferrari_1996_2048x2048.webp" alt="Trophy">
+                    <h3>Historic 3rd Title</h3>
+                    <p><strong>Recipient:</strong> Michael Schumacher</p>
+                    <p><strong>Date:</strong> 2000 Season</p>
+                </div>
+            </div>
+            <div class="trophy-row">
+                <div class="trophy">
+                    <img src="pi5a9mukudwf1.png" alt="Trophy">
+                    <h3>Most Recent WDC</h3>
+                    <p><strong>Recipient:</strong> Kimi Räikkönen</p>
+                    <p><strong>Date:</strong> 2007 Season</p>
+                </div>
+                <div class="trophy">
+                    <img src="2019-F1-Italian-GP_Charles-Leclerc_3.avif" alt="Trophy">
+                    <h3>Monza Heroics</h3>
+                    <p><strong>Recipient:</strong> Charles Leclerc</p>
+                    <p><strong>Date:</strong> 2019 Italian GP</p>
+                </div>
+                <div class="trophy">
+                    <img src="monacogp.jpg" alt="Trophy">
+                    <h3>Home Glory</h3>
+                    <p><strong>Recipient:</strong> Charles Leclerc</p>
+                    <p><strong>Date:</strong> 2024 Monaco GP</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+<script>
+    const nextBtn = document.getElementById('next-btn');
+    const prevBtn = document.getElementById('prev-btn');
+    const boxes = document.querySelectorAll('.info-box'); 
+    let currentDriver = 0;
+
+    nextBtn.addEventListener('click', () => {
+        boxes[currentDriver].classList.remove('active');
+        currentDriver = (currentDriver + 1) % boxes.length;
+        boxes[currentDriver].classList.add('active');
+    });
+
+    prevBtn.addEventListener('click', () => {
+        boxes[currentDriver].classList.remove('active');
+        currentDriver = (currentDriver - 1 + boxes.length) % boxes.length;
+        boxes[currentDriver].classList.add('active');
+    });
+
+
+    // --- 2. TROPHY CUPBOARD LOGIC ---
+    const nextShelfBtn = document.getElementById('next-shelf');
+    const prevShelfBtn = document.getElementById('prev-shelf');
+    const shelves = document.querySelectorAll('.trophy-row'); 
+    let currentShelf = 0;
+
+    nextShelfBtn.addEventListener('click', () => {
+        shelves[currentShelf].classList.remove('active');
+        currentShelf = (currentShelf + 1) % shelves.length;
+        shelves[currentShelf].classList.add('active');
+    });
+
+    prevShelfBtn.addEventListener('click', () => {
+        shelves[currentShelf].classList.remove('active');
+        currentShelf = (currentShelf - 1 + shelves.length) % shelves.length;
+        shelves[currentShelf].classList.add('active');
+    });
+</script>
+</body>
+</html>
